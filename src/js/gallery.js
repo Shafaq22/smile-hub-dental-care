@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initGalleryFilter() {
   const filterBtns = document.querySelectorAll('.gallery-tabs .tab-btn');
-  const galleryItems = document.querySelectorAll('.gallery-grid .gallery-item');
+  const galleryItems = document.querySelectorAll('.floating-gallery-track .gallery-item');
 
   if (!filterBtns.length || !galleryItems.length) return;
 

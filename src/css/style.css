@@ -1151,25 +1151,92 @@ img {
   margin-bottom: 0;
 }
 
-/* Gallery Section */
+/* Full Width Floating Windows Gallery Section */
 .gallery-section {
   background-color: var(--bg-main);
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+.floating-gallery-section {
+  overflow: hidden;
+  padding-bottom: 4rem;
+}
+
+.full-width-floating-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 2rem 0 3rem 0;
+}
+
+.full-width-floating-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.floating-gallery-track {
+  display: flex;
+  gap: 2rem;
+  padding: 0 3rem;
+  width: max-content;
+  animation: continuousFloat 50s linear infinite;
+}
+
+.full-width-floating-wrapper:hover .floating-gallery-track {
+  animation-play-state: paused;
+}
+
+@keyframes continuousFloat {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.floating-window-card {
+  width: 360px;
+  height: 250px;
+  flex-shrink: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 16px 36px rgba(13, 92, 99, 0.16);
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  background: var(--primary-dark);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: gentleLevitation 4s ease-in-out infinite alternate;
+}
+
+.floating-window-card:nth-child(even) {
+  animation-delay: 2s;
+}
+
+@keyframes gentleLevitation {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-12px);
+  }
+}
+
+.floating-window-card:hover {
+  transform: translateY(-18px) scale(1.04) !important;
+  box-shadow: 0 24px 48px rgba(13, 92, 99, 0.35);
+  z-index: 10;
 }
 
 .gallery-item {
   position: relative;
-  border-radius: var(--radius-md);
   overflow: hidden;
-  height: 260px;
-  box-shadow: var(--shadow-sm);
-  cursor: pointer;
-  border: 1px solid var(--border-light);
 }
 
 .gallery-item img {
@@ -1189,7 +1256,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(7, 33, 36, 0.85) 0%, rgba(0, 0, 0, 0) 60%);
+  background: linear-gradient(to top, rgba(7, 33, 36, 0.88) 0%, rgba(0, 0, 0, 0) 65%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
