@@ -1,5 +1,5 @@
 export default {
-  base: './',
+  base: '/smile-hub-dental-care/',
   build: {
     outDir: 'dist',
   },
