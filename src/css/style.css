@@ -830,12 +830,14 @@ img {
 
 .highlight-card {
   background: var(--bg-main);
-  padding: 2rem;
+  padding: 0;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-light);
   transition: var(--transition-normal);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .highlight-card:hover {
@@ -845,17 +847,41 @@ img {
   background: #ffffff;
 }
 
+.highlight-card-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--primary-dark);
+}
+
+.highlight-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.highlight-card:hover .highlight-card-img img {
+  transform: scale(1.08);
+}
+
+.highlight-card-content {
+  padding: 1.75rem;
+  flex-grow: 1;
+}
+
 .highlight-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent-mint) 100%);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
   box-shadow: var(--shadow-sm);
 }
 
